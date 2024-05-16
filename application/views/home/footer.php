@@ -116,7 +116,7 @@
                 // Redirect ke halaman QR code setelah 2 detik
                 setTimeout(function(){
                     window.location.href = "<?php echo base_url('/render'); ?>";
-                }, 2000); // 2 detik
+                }, 1000); // 1 detik
             },
             error: function(xhr) {
                 $('#alert').removeClass('alert-success').addClass('alert-danger').html(

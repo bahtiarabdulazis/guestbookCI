@@ -321,6 +321,7 @@
         #modalrahasia {
             margin-left: 10%;
         }
+        
     </style>
 </head>
 

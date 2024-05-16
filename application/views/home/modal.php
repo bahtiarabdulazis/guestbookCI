@@ -8,7 +8,7 @@
                         <h5 class="modal-title" id="modal3Label">Kebijakan HSE PT Anugrah Analisis Sempurna</h5>
                     </div>
                     <div class="modal-body">
-                        <div class="row" id="firstModal" style="font-size: 12px;">
+                        <div class="row" id="firstModal" style="font-size: 25px;">
                             <p>
                                 PT. Anugrah Analisis Sempurna berusaha dengan sungguh-sungguh untuk mencapai
                                 peningkatan standar sistem manajemen HSE pada seluruh sistem operasi. Manajemen
@@ -68,7 +68,7 @@
                         <h5 class="modal-title" id="modal7Label">Kebijakan Mutu PT Anugrah Analisis Sempurna</h5>
                     </div>
                     <div class="modal-body">
-                        <div class="row" style="font-size: 12px;" id="secondModal">
+                        <div class="row" style="font-size: 25px;" id="secondModal">
 
                             <p>
                                 PT Anugrah Analisis Sempurna sebagai perusahaan yang bergerak dibidang
@@ -197,14 +197,13 @@
                     </div>
                 </div>
 
-
                 <div class="mySlides fade">
                     <div class="modal-header text-center">
                         <h5 class="modal-title text-center" id="modalrahasia">Pernyataan Menjaga Kerahasiaan</h5>
                     </div>
                     <div class="modal-body">
                         <div class="row justify-content-center"> <!-- Tambahkan kelas text-center di sini -->
-                            <div class="col-md-6" style="font-size: 12px">
+                            <div class="col-md-6" style="font-size: 15px">
                                 <p>Mewakili perusahaan saya, dengan ini menyatakan:</p>
                                 <ol>
                                     <li>
@@ -232,7 +231,7 @@
                                 </ol>
                                 <div class="form-check">
                                     <input class="form-check-input" type="checkbox" id="checkbox" onchange="toggleSaveButton()">
-                                    <label class="form-check-label" for="checkbox" style="margin-top: 5px"> 
+                                    <label class="form-check-label" for="checkbox" style="margin-top: 5px; "> 
                                         Klik tanda centang apabila anda telah membaca semua informasi ini
                                     </label>
                                     <button type="submit" onclick="saveData()" id="save" class="btn btn-outline-primary" style="display: none">Simpan</button>
@@ -241,7 +240,6 @@
                         </div>
                     </div>
                 </div>
-
 
                 <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
                 <a class="next" onclick="plusSlides(1)">&#10095;</a>
