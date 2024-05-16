@@ -37,16 +37,16 @@
         <?php if ($users): ?>
             <div class="content">
                 <div class="data-item">
-                    <span class="label">Nama:</span> <?php echo $users->nama; ?>
+                    <p><span class="label">Nama:</span> <?php echo $users->nama; ?></p>
                 </div>
                 <div class="data-item">
-                    <span class="label">Nama Perusahaan:</span> <?php echo $users->aslpt; ?>
+                    <p><span class="label">Nama Perusahaan:</span> <?php echo $users->aslpt; ?></p>
                 </div>
                 <div class="data-item">
-                    <span class="label">Maksud Kunjungan:</span> <?php echo $users->makkun; ?>
+                    <p><span class="label">Maksud Kunjungan:</span> <?php echo $users->makkun; ?></p>
                 </div>
                 <div class="data-item">
-                    <span class="label">Yang Dituju:</span> <?php echo $users->ygdituju; ?>
+                    <p><span class="label">Yang Dituju:</span> <?php echo $users->ygdituju; ?></p>
                 </div>
                 <button onclick="confirmData(<?php echo $users->id; ?>)">Konfirmasi</button>
             </div>
@@ -64,7 +64,7 @@
         .then(data => {
             if (data.success) {
                 alert('Data confirmed and QR code removed.');
-                window.location.href = '<?php echo site_url(); ?>'; // Redirect to home or another page
+                window.location.href = '<?php echo site_url('home/index'); ?>'; // Redirect to home or another page
             } else {
                 alert('Error confirming data');
             }

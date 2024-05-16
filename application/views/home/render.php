@@ -41,8 +41,8 @@
         <?php if (!empty($data)) : ?>
             <?php foreach ($data as $row) : ?>
                 <div class="item">
-                    <a href="<?php echo site_url('some/path/' . $row->ygdituju); ?>">
-                        <img src="<?php echo site_url('render/QRcode/' . $row->ygdituju); ?>" alt="QR Code">
+                    <a href="<?php echo site_url('some/path/' . $row->id); ?>">
+                        <img src="<?php echo site_url('render/QRcode/' . $row->id); ?>" alt="QR Code">
                     </a>
                     <div class="note">
                         Berikan QR ini ketika anda telah selesai berkunjung.

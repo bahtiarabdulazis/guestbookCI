@@ -17,7 +17,7 @@ class Render extends CI_Controller {
         $this->load->view('home/render', $data);
     }
 
-    public function QRcode($kodenya = '12345678') {
+    public function QRcode($kodenya) {
         QRcode::png(
             $kodenya,
             $outfile = false,
@@ -31,6 +31,7 @@ class Render extends CI_Controller {
         // Fetch data from the 'tamu' table based on ID
         $this->db->where('id', $id);
         $query = $this->db->get('users');
+        // print_r($id);
     
         if ($query->num_rows() > 0) {
             $data['users'] = $query->row();
@@ -41,5 +42,4 @@ class Render extends CI_Controller {
         // Load the view and pass the data
         $this->load->view('home/data.php', $data);
     }
-    
 }
