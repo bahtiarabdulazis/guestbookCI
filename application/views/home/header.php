@@ -18,10 +18,7 @@
             padding: 0;
             background-color: #f8f9fa;
             overflow-y: scroll;
-            /* Mengaktifkan scrolling */
             height: 100%;
-            /* Mengatur tinggi halaman menjadi 100% untuk menghindari scroll horizontal */
-
         }
 
         .container {
@@ -30,7 +27,6 @@
             height: auto;
             margin-bottom: 0;
             min-height: 90vh;
-            /* Mengatur tinggi kontainer agar sesuai dengan tinggi viewport */
         }
 
         .modal {
@@ -50,13 +46,14 @@
             position: relative;
             top: 50%;
             transform: translateY(-50%);
-            width: 90%;
-            max-width: 80%;
-            max-height: 90%;
+            width: 80%; /* Increased width */
+            max-width: 100%;
+            max-height: 95%;
             padding: 20px;
             border-radius: 10px;
             background-color: #fff;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            overflow-y: auto; /* Make modal content scrollable */
         }
 
         .close {
@@ -69,18 +66,28 @@
             cursor: pointer;
         }
 
+        .modal-header {
+            text-align: center;
+        }
+
+        .modal-title {
+            font-size: 24px;
+        }
+
+        .modal-body {
+            font-size: 16px;
+        }
+
         .slideshow-container {
             max-width: 1000px;
             margin: auto;
             position: relative;
         }
 
-        /* Hide the images by default */
         .mySlides {
             display: none;
         }
 
-        /* Next & previous buttons */
         .prev,
         .next {
             cursor: pointer;
@@ -97,7 +104,6 @@
             user-select: none;
         }
 
-        /* Position the "next button" to the right */
         .next {
             right: 0;
             border-radius: 3px 0 0 3px;
@@ -113,7 +119,6 @@
             background-color: rgba(0, 0, 0, 0.8);
         }
 
-        /* Tambahkan warna background untuk titik navigasi slideshow */
         .dot {
             cursor: pointer;
             height: 15px;
@@ -125,16 +130,11 @@
             transition: background-color 0.6s ease;
         }
 
-        #makkun {
-            height: 150px;;
-        }
-
         .active,
         .dot:hover {
             background-color: #333;
         }
 
-        /* Fading animation */
         .fade {
             animation-name: fade;
             animation-duration: 1.5s;
@@ -145,7 +145,6 @@
             from {
                 opacity: 0.4;
             }
-
             to {
                 opacity: 1;
             }
@@ -182,9 +181,7 @@
         .login-wrap {
             width: 100%;
             padding: 20px;
-
         }
-
 
         .login-wrap .form-control {
             border-radius: 20px;
@@ -196,9 +193,7 @@
 
         .login-wrap .form-control:focus {
             border-color: #28a745;
-            /* Ubah warna pinggiran menjadi hijau saat form di-fokus */
             box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.25);
-            /* Efek shadow saat form di-fokus */
         }
 
         #exitt1 {
@@ -208,16 +203,12 @@
 
         #pintu2 {
             width: 300px;
-            height: 200px,
+            height: 200px;
         }
 
         @media (max-width: 600px) {
-            /* .container {
-                padding: 20px;
-            } */
-
             .wrap .img {
-                height: 175px
+                height: 175px;
             }
 
             #form-title {
@@ -267,7 +258,7 @@
 
             #pintu2 {
                 width: 150px;
-                height: 100px,
+                height: 100px;
             }
 
             #firstModal p,
@@ -298,7 +289,6 @@
             td {
                 padding: 8px;
                 text-align: center;
-                /* Membuat teks menjadi rata tengah */
                 border-bottom: 1px solid #ddd;
                 font-size: 5px;
             }
@@ -306,8 +296,6 @@
             th {
                 background-color: #f2f2f2;
             }
-
-
         }
 
         #modalevakuasi {
@@ -321,8 +309,6 @@
         #modalrahasia {
             margin-left: 10%;
         }
-        
     </style>
 </head>
-
 <body>
