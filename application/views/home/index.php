@@ -9,9 +9,9 @@
                             <h3 id="form-title" class="mb-4">Form Buku Tamu</h3>
                         </div>
                     </div>
-                    <!-- Form untuk menambahkan tamu -->
                     <div id="alert" style="display: none;"></div>
-                    <form id="guestForm" action="<?php echo base_url('TamuController/SimpanTamu'); ?>" method="post" onsubmit="return showModal()">
+
+                    <form id="guestForm" action="<?php echo base_url('tamu/simpan'); ?>" method="post">
                         <div class="form-group mb-3">
                             <label class="label" for="nama">Nama</label>
                             <?php echo form_input('nama', '', 'id="nama" class="form-control" required'); ?>
@@ -26,16 +26,22 @@
                         </div>
                         <div class="form-group mb-3">
                             <label class="label" for="ygdituju">Yang Dituju</label>
-                            <?php echo form_input('ygdituju', '', 'id="ygdituju" class="form-control" required'); ?>
+                            <select id="ygdituju" name="ygdituju" class="form-control" required>
+                                <?php if (isset($names) && !empty($names)): ?>
+                                    <?php foreach ($names as $name): ?>
+                                        <option value="<?php echo $name; ?>"><?php echo $name; ?></option>
+                                    <?php endforeach; ?>
+                                <?php else: ?>
+                                    <option value="">No names available</option>
+                                <?php endif; ?>
+                            </select>
                         </div>
                         <div class="d-grid gap-2">
-                            <button class="btn btn-success" type="button" style="padding-left: 35%; padding-right: 35%" onclick="showModal()">Selanjutnya</button>
+                            <button class="btn btn-success" type="submit" style="padding-left: 35%; padding-right: 35%">Selanjutnya</button>
                         </div>
                     </form>
-                    <!-- Akhir form -->
                 </div>
             </div>
         </div>
     </div>
-
 </section>

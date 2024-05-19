@@ -41,9 +41,7 @@
         <?php if (!empty($data)) : ?>
             <?php foreach ($data as $row) : ?>
                 <div class="item">
-                    <a href="<?php echo site_url('some/path/' . $row->id); ?>">
-                        <img src="<?php echo site_url('render/QRcode/' . $row->id); ?>" alt="QR Code">
-                    </a>
+                    <img src="<?php echo site_url('render/QRcode/' . $row->nama); ?>" alt="QR Code">
                     <div class="note">
                         Berikan QR ini ketika anda telah selesai berkunjung.
                     </div>
@@ -51,6 +49,17 @@
             <?php endforeach; ?>
         <?php else : ?>
             <div class="item">Tidak ada data terbaru.</div>
+        <?php endif; ?>
+
+        <h3>Data dari API</h3>
+        <?php if (!empty($api_data)) : ?>
+            <?php foreach ($api_data as $item) : ?>
+                <div class="item">
+                    <p>Nama: <?php echo $item['nama']; ?></p>
+                </div>
+            <?php endforeach; ?>
+        <?php else : ?>
+            <div class="item">Tidak ada data dari API.</div>
         <?php endif; ?>
     </div>
 </body>
