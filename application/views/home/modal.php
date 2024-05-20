@@ -131,30 +131,30 @@
                     <table id="modal-table" class="table" style="margin: 0 auto; border-collapse: collapse;">
                         <tbody>
                             <tr style="border-top: none;">
-                                <td style="font-size: 18px;">Kebakaran</td>
+                                <td style="font-size: 12px;">Kebakaran</td>
                                 <td><i class="bi bi-fire" style="font-size: 15px; color: red;"></i></td>
                             </tr>
                             <tr>
-                                <td style="font-size: 18px;">Tumpahan dan Cipratan Bahan Kimia</td>
+                                <td style="font-size: 12px;">Tumpahan dan Cipratan Bahan Kimia</td>
                                 <td><i class="bi bi-droplet-half" style="font-size: 15px; color: black;"></i>
                                 </td>
                             </tr>
                             <tr>
-                                <td style="font-size: 18px;">Gempa Bumi</td>
+                                <td style="font-size: 12px;">Gempa Bumi</td>
                                 <td><i class="bi bi-globe-central-south-asia" style="font-size: 15px; color: green;"></i>
                                 </td>
                             </tr>
                             <tr>
-                                <td style="font-size: 18px;">Tersengat Listrik</td>
+                                <td style="font-size: 12px;">Tersengat Listrik</td>
                                 <td><i class="bi bi-lightning" style="font-size: 15px; color: yellow;"></i>
                                 </td>
                             </tr>
                             <tr>
-                                <td style="font-size: 18px;">Kebocoran Gas</td>
+                                <td style="font-size: 12px;">Kebocoran Gas</td>
                                 <td><i class="bi bi-wind" style="font-size: 15px; color: orange;"></i></td>
                             </tr>
                             <tr>
-                                <td style="font-size: 18px;">Keracunan Makanan</td>
+                                <td style="font-size: 12px;">Keracunan Makanan</td>
                                 <td><i class="bi bi-emoji-dizzy-fill" style="font-size: 15px; color: black;"></i></td>
                             </tr>
                         </tbody>
@@ -169,7 +169,7 @@
                 <div class="modal-body">
                     <div class="row justify-content-center text-center">
                         <!-- Tambahkan kelas text-center di sini -->
-                        <div class="col-md-6" style="font-size: 18px">
+                        <div class="col-md-6" style="font-size: 12px">
                             <img id="exitt1" src="<?= base_url('assets/images/exitt1.jpeg'); ?>" class="img-fluid" alt="Informasi 9">
                             <p>Jika terdengar bunyi alarm/keadaan darurat lakukan evakuasi mengikuti tanda
                                 "Evakuasi" melalui tangga darurat dan menuju titik kumpul/muster point</p>
@@ -185,7 +185,7 @@
                 <div class="modal-body">
                     <div class="row justify-content-center text-center">
                         <!-- Tambahkan kelas text-center di sini -->
-                        <div class="col-md-6" style="font-size: 18px">
+                        <div class="col-md-6" style="font-size: 12px">
                             <img id="pintu2" src="<?= base_url('assets/images/Pintu2.jpeg'); ?>" class="img-fluid" alt="Informasi 9">
                             <p>Titik kumpul berada di sebelah pos security. Saat keadaan darurat, berbaris
                                 satu barisan dan laporkan kepada tim tanggap darurat yang menggunakan helm
@@ -202,7 +202,7 @@
                 <div class="modal-body">
                     <div class="row justify-content-center">
                         <!-- Tambahkan kelas text-center di sini -->
-                        <div class="col-md-6" style="font-size: 18px">
+                        <div class="col-md-6" style="font-size: 15px">
                             <p>Mewakili perusahaan saya, dengan ini menyatakan:</p>
                             <ol>
                                 <li>

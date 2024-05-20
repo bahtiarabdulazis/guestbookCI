@@ -41,7 +41,7 @@
         <?php if (!empty($data)) : ?>
             <?php foreach ($data as $row) : ?>
                 <div class="item">
-                    <a href="<?php echo site_url('some/path/' . $row->id); ?>">
+                    <!-- <a href="<?php echo site_url('some/path/' . $row->id); ?>"> -->
                         <img src="<?php echo site_url('render/QRcode/' . $row->id); ?>" alt="QR Code">
                     </a>
                     <div class="note">
