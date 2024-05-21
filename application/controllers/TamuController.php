@@ -7,27 +7,9 @@ class TamuController extends CI_Controller
     {
         parent::__construct();
         $this->load->library('session');
+        $this->load->library('curl');
         $this->load->model('Tamu'); // Inisialisasi model Tamu
         $this->load->helper('url');
-    }
-
-    public function formBukuTamu()  
-    {
-        // Ambil data pegawai dari API melalui model Tamu
-        $dataFromApi = $this->Tamu->getPegawaiFromApi();
-        
-        // Siapkan data untuk dikirim ke view
-        $data['pegawai'] = [];
-        if (isset($dataFromApi['employes']) && is_array($dataFromApi['employes'])) {
-            foreach ($dataFromApi['employes'] as $employe) {
-                if (isset($employe['name'])) {
-                    $data['pegawai'][] = $employe['name'];
-                }
-            }
-        }
-        
-        // Kirim data ke view
-        $this->load->view('form_buku_tamu', $data);
     }
 
     public function simpanTamu()
@@ -51,23 +33,7 @@ class TamuController extends CI_Controller
         redirect(base_url('index.php')); // atau redirect(''); jika sudah mengatur base_url di konfigurasi
     }
 
-    public function getEmployesNames() {
-        // Mengambil data pegawai dari API
-        $dataFromApi = $this->Tamu->getPegawaiFromApi();
-        
-        // Ambil nama-nama pegawai dari API response
-        $names = [];
-        if (isset($dataFromApi['employes']) && is_array($dataFromApi['employes'])) {
-            foreach ($dataFromApi['employes'] as $employe) {
-                if (isset($employe['name'])) {
-                    $names[] = $employe['name'];
-                }
-            }
-        }
-        
-        // Kembalikan nama-nama pegawai sebagai JSON
-        header('Content-Type: application/json');
-        echo json_encode($names);
-    }
+    
+
 }
 ?>
