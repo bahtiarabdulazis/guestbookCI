@@ -32,8 +32,5 @@ class TamuController extends CI_Controller
         $this->session->set_flashdata('status', 'Data berhasil disimpan!'); 
         redirect(base_url('index.php')); // atau redirect(''); jika sudah mengatur base_url di konfigurasi
     }
-
-    
-
 }
 ?>
