@@ -8,20 +8,29 @@ class TamuController extends CI_Controller
         parent::__construct();
         $this->load->library('session');
         $this->load->model('Tamu'); // Inisialisasi model Tamu
-        $this->load->model('PegawaiModel'); // Inisialisasi model Pegawai
         $this->load->helper('url');
     }
 
     public function formBukuTamu()  
     {
-        // Ambil data pegawai dari model
-        $data['pegawai'] = $this->PegawaiModel->getAllPegawai();
+        // Ambil data pegawai dari API melalui model Tamu
+        $dataFromApi = $this->Tamu->getPegawaiFromApi();
+        
+        // Siapkan data untuk dikirim ke view
+        $data['pegawai'] = [];
+        if (isset($dataFromApi['employes']) && is_array($dataFromApi['employes'])) {
+            foreach ($dataFromApi['employes'] as $employe) {
+                if (isset($employe['name'])) {
+                    $data['pegawai'][] = $employe['name'];
+                }
+            }
+        }
         
         // Kirim data ke view
         $this->load->view('form_buku_tamu', $data);
     }
 
-    public function SimpanTamu()
+    public function simpanTamu()
     {
         $nama = $this->input->post('nama');
         $aslpt = $this->input->post('aslpt');
@@ -40,6 +49,25 @@ class TamuController extends CI_Controller
 
         $this->session->set_flashdata('status', 'Data berhasil disimpan!'); 
         redirect(base_url('index.php')); // atau redirect(''); jika sudah mengatur base_url di konfigurasi
+    }
+
+    public function getEmployesNames() {
+        // Mengambil data pegawai dari API
+        $dataFromApi = $this->Tamu->getPegawaiFromApi();
+        
+        // Ambil nama-nama pegawai dari API response
+        $names = [];
+        if (isset($dataFromApi['employes']) && is_array($dataFromApi['employes'])) {
+            foreach ($dataFromApi['employes'] as $employe) {
+                if (isset($employe['name'])) {
+                    $names[] = $employe['name'];
+                }
+            }
+        }
+        
+        // Kembalikan nama-nama pegawai sebagai JSON
+        header('Content-Type: application/json');
+        echo json_encode($names);
     }
 }
 ?>
