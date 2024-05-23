@@ -2,12 +2,6 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Render extends CI_Controller {
-    // public function __construct() {
-    //     parent::__construct();
-    //     $this->load->library('Ciqrcode');
-    //     $this->load->database();
-    // }
-
     function __construct() {
         parent::__construct();
         $this->API = "https://api.aaslabs.com/web/Employes";
@@ -19,11 +13,12 @@ class Render extends CI_Controller {
     }
 
     public function index() {
-        $response = $this->curl->simple_get($this->API . '/nama');
+        $response = $this->curl->simple_get($this->API);
         
         // Check if the response is not empty
         if ($response) {
             $data['datapegawai'] = json_decode($response);
+            log_message('debug', 'API Response: ' . print_r($data['datapegawai'], true));
         } else {
             // Handle the error, maybe set $data['datapegawai'] to an empty array or null
             $data['datapegawai'] = [];
@@ -49,7 +44,6 @@ class Render extends CI_Controller {
         // Fetch data from the 'tamu' table based on ID
         $this->db->where('id', $id);
         $query = $this->db->get('users');
-        // print_r($id);
     
         if ($query->num_rows() > 0) {
             $data['users'] = $query->row();
@@ -61,3 +55,4 @@ class Render extends CI_Controller {
         $this->load->view('home/data.php', $data);
     }
 }
+?>
