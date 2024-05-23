@@ -55,15 +55,18 @@
             $.ajax({
                 url: "<?php echo base_url('TamuController/ygDituju'); ?>",
                 type: "GET",
+                dataType: "json",
                 success: function(data) {
-                    if (data && data.length > 0) {
+                    if (data && Array.isArray(data) && data.length > 0) {
                         $('#ygdituju').empty(); // Bersihkan opsi dropdown sebelum menambahkan yang baru
                         $('#ygdituju').append('<option value="">Pilih Yang Dituju</option>'); // Tambahkan opsi default
                         $.each(data, function(i, pegawai) {
-                            $('#ygdituju').append('<option value="' + pegawai.nama + '">' + pegawai.nama + '</option>');
+                            if (i !== 1) { // Abaikan elemen pertama (indeks 0)
+                                $('#ygdituju').append('<option value="' + pegawai.nama + '">' + pegawai.nama + '</option>');
+                            }
                         });
                     } else {
-                        console.error('Respons tidak memiliki properti yang diharapkan.');
+                        console.error('Respons tidak memiliki properti yang diharapkan atau data kosong.');
                         $('#ygdituju').html('<option value="">Gagal memuat data</option>');
                     }
                 },
@@ -73,6 +76,6 @@
                 }
             });
         });
-        </script>
+    </script>
 </body>
 </html>

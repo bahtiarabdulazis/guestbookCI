@@ -39,10 +39,6 @@ class TamuController extends CI_Controller
         $getData = json_decode($this->curl->simple_get($this->API));
     
         // Print respons untuk memeriksanya
-        echo "<pre>";
-        print_r($getData);
-        echo "</pre>";
-    
         // Periksa apakah respons tidak kosong dan memiliki properti datapegawai
         if (!empty($getData) && property_exists($getData, 'datapegawai')) {
             $datapegawai = $getData->datapegawai;
