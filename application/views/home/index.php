@@ -4,21 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Form Buku Tamu</title>
-    <style>
-        body {
-            font-family: sans-serif;
-            font-size: 14px;
-        }
-        .container {
-            min-height: 100vh;
-        }
-        .wrap {
-            display: flex;
-        }
-        .login-wrap {
-            padding: 4rem;
-        }
-    </style>
 </head>
 <body>
     <section>
