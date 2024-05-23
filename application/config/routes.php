@@ -54,7 +54,7 @@ $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 $route['simpan-tamu'] = 'TamuController/SimpanTamu';
 $route['qr'] = 'QrController/index';
-// $route['TamuController/ygDituju'] = 'TamuController/ygDituju';
+$route['TamuController/ygDituju'] = 'TamuController/ygDituju';
 $route['some/path/(:any)'] = 'render/viewData/$1';
 // $route['api'] = 'api/bukutamu/index';
 

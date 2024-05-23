@@ -34,33 +34,27 @@ class TamuController extends CI_Controller
         redirect(base_url('index.php')); // atau redirect(''); jika sudah mengatur base_url di konfigurasi
     }
 
-    // public function ygDituju()
-    // {
-    //     $endpoint = 'https://api.aaslabs.com/web/Employes'; // Update URL endpoint sesuai dengan kebutuhan
+    public function ygDituju()
+    {
+        $getData = json_decode($this->curl->simple_get($this->API));
     
-    //     // Lakukan panggilan ke endpoint menggunakan cURL
-    //     $ch = curl_init();
-    //     curl_setopt($ch, CURLOPT_URL, $endpoint);
-    //     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-    //     curl_setopt($ch, CURLOPT_HEADER, false);
-    //     $response = curl_exec($ch);
+        // Print respons untuk memeriksanya
+        echo "<pre>";
+        print_r($getData);
+        echo "</pre>";
     
-    //     if ($response === FALSE) {
-    //         log_message('error', 'Failed to fetch data using cURL');
-    //         echo 'Failed to fetch data using cURL';
-    //         return;
-    //     }
-    
-    //     // Log dan kirim data ke view jika respons berhasil diterima
-    //     log_message('debug', 'API Response: ' . $response);
-    
-    //     // Mengirim data ke view dalam bentuk array asosiatif
-    //     $data['datapegawai'] = json_decode($response, true);
-    
-    //     log_message('debug', 'Decoded API Response: ' . print_r($data['datapegawai'], true));
-    
-    //     $this->load->view('home/index', $data);
-    // }
-    
+        // Periksa apakah respons tidak kosong dan memiliki properti datapegawai
+        if (!empty($getData) && property_exists($getData, 'datapegawai')) {
+            $datapegawai = $getData->datapegawai;
+            $this->output
+                ->set_content_type('application/json')
+                ->set_output(json_encode($datapegawai));
+        } else {
+            // Jika respons tidak sesuai, kirim respons kosong
+            $this->output
+                ->set_content_type('application/json')
+                ->set_output(json_encode([]));
+        }
+    }   
 }
 ?>
