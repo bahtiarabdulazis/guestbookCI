@@ -34,25 +34,23 @@
                         </div>
                         <!-- Form untuk menambahkan tamu -->
                         <div id="alert" style="display: none;"></div>
-                        <form id="guestForm" action="<?php echo base_url('TamuController/simpanTamu'); ?>" method="post">
+                        <form id="guestForm" action="">
                             <div class="form-group mb-3">
                                 <label class="label" for="nama">Nama</label>
-                                <?php echo form_input('nama', '', 'id="nama" class="form-control" required'); ?>
+                                <input type="text" name="nama" id="nama" class="form-control" required />
                             </div>
                             <div class="form-group mb-3">
                                 <label class="label" for="aslpt">Nama Perusahaan</label>
-                                <?php echo form_input('aslpt', '', 'id="aslpt" class="form-control" required'); ?>
+                                <input type="text" name="aslpt" id="aslpt" class="form-control" required />
                             </div>
                             <div class="form-group mb-3">
                                 <label class="label" for="makkun">Maksud Kunjungan</label>
-                                <?php echo form_textarea(array('name' => 'makkun', 'id' => 'makkun', 'class' => 'form-control', 'required' => 'required'), ''); ?>
+                                <textarea name="makkun" cols="40" rows="10" id="makkun" class="form-control" required ></textarea>
                             </div>
                             <div class="form-group mb-3">
                                 <label class="label" for="ygdituju">Yang Dituju</label>
                                 <select id="ygdituju" name="ygdituju" class="form-control" required>
-                                    <?php foreach ($datapegawai as $pegawai): ?>
-                                        <option value="<?= $pegawai->name; ?>"><?= $pegawai->name; ?></option>
-                                    <?php endforeach; ?>
+                                    <option value="">Memuat data...</option>
                                 </select>
                             </div>
                             <div class="d-grid gap-2">
@@ -65,5 +63,29 @@
             </div>
         </div>
     </section>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $.ajax({
+                url: "https://api.aaslabs.com/web/Employes",
+                type: "GET",
+                dataType: "json",
+                success: function(data) {
+                    const datapegawai = data.datapegawai;
+                    console.log(datapegawai);
+                    $('#ygdituju').empty(); // Bersihkan opsi dropdown sebelum menambahkan yang baru
+                    $('#ygdituju').append('<option value="">Pilih Yang Dituju</option>'); // Tambahkan opsi default
+                    $.each(datapegawai, function(i, pegawai) {
+                        $('#ygdituju').append('<option value="' + pegawai.nama + '">' + pegawai.nama + '</option>');
+                    });
+                },
+                error: function(xhr, status, error) {
+                    console.error(xhr.responseText);
+                    $('#ygdituju').html('<option value="">Gagal memuat data</option>');
+                }
+            });
+        });
+    </script>
 </body>
 </html>
