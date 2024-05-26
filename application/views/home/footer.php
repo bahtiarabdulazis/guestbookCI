@@ -97,13 +97,13 @@
         let nama = document.querySelector('input[name="nama"]').value;
         let aslpt = document.querySelector('input[name="aslpt"]').value;
         let makkun = document.querySelector('textarea[name="makkun"]').value;
-        let ygdituju = document.querySelector('input[name="ygdituju"]').value;
+        let ygdituju = document.querySelector('select[name="ygdituju"]').value;
 
         $.ajax({
             url: "<?php echo base_url('TamuController/SimpanTamu'); ?>",
             type: "POST",
             data: {
-                _token: "{{ csrf_token() }}",
+                _token: "{{ csrf_token() }}",   
                 nama: nama,
                 aslpt: aslpt,
                 makkun: makkun,
