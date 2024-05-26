@@ -21,8 +21,8 @@ class TamuController extends CI_Controller
         $ygdituju = $this->input->post('ygdituju');
 
         if (empty($nama) || empty($aslpt) || empty($makkun) || empty($ygdituju)) {
-            $this->session->set_flashdata('error', 'Semua kolom harus diisi!');
-            redirect('form-url'); // Ganti 'form-url' dengan URL form Anda
+            $this->session->set_flashdata('error', 'All fields must be filled!');
+            redirect(base_url()); // Change to your form URL
         } else {
             $data = array(
                 'nama' => $nama,
@@ -32,11 +32,12 @@ class TamuController extends CI_Controller
                 'password' => password_hash('rahasia', PASSWORD_DEFAULT)
             );
 
-            $this->Tamu->simpanTamu($data); 
+            $this->Tamu->simpanTamu($data);
 
-            $this->session->set_flashdata('status', 'Data berhasil disimpan!');
-            $this->session->set_userdata('form_submitted', true); // Tandai bahwa form telah diisi
-            redirect('render/index'); // Arahkan ke halaman berikutnya
+            $this->session->set_flashdata('status', 'Data successfully saved!');
+            $this->session->set_userdata('form_submitted', true); // Mark form as submitted
+            $this->session->set_userdata('qr_scanned', false); // QR not yet scanned
+            redirect('render/showQR'); // Redirect to QR code page
         }
     }
 
@@ -54,5 +55,6 @@ class TamuController extends CI_Controller
                 ->set_content_type('application/json')
                 ->set_output(json_encode([]));
         }
-    }   
+    }
 }
+?>

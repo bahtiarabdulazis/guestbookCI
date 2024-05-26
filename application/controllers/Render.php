@@ -10,16 +10,26 @@ class Render extends CI_Controller {
     }
 
     public function index() {
+        redirect(base_url()); // Redirect to form page
+    }
+
+    public function showQR() {
         if (!$this->session->userdata('form_submitted')) {
             $this->session->set_flashdata('error', 'Anda harus mengisi form terlebih dahulu untuk melanjutkan.');
             redirect(base_url()); // Ganti 'form-url' dengan URL form Anda
         }
 
-        $this->db->order_by('id', 'DESC');
-        $query = $this->db->get('users', 1);
-        $data['data'] = $query->result();
+        if (!$this->session->userdata('qr_scanned')) {
+            $this->db->order_by('id', 'DESC');
+            $query = $this->db->get('users', 1);
+            $data['data'] = $query->result();
 
-        $this->load->view('home/render', $data);
+            $this->load->view('home/render', $data);
+        } else {
+            $this->session->unset_userdata('form_submitted');
+            $this->session->unset_userdata('qr_scanned');
+            redirect(base_url()); // Ganti 'form-url' dengan URL form Anda
+        }
     }
 
     public function QRcode($kodenya) {
@@ -30,24 +40,19 @@ class Render extends CI_Controller {
             $size = 5,
             $margin = 1
         );
-    }
 
-    public function viewData($id) {
-        if (!$this->session->userdata('form_submitted')) {
-            $this->session->set_flashdata('error', 'Anda harus mengisi form terlebih dahulu untuk melanjutkan.');
-            redirect(base_url()); // Ganti 'form-url' dengan URL form Anda
-        }
+        // Assume QR code scanned successfully
+        $this->session->set_userdata('qr_scanned', true);
 
-        $this->db->where('id', $id);
-        $query = $this->db->get('users');
-    
-        if ($query->num_rows() > 0) {
-            $data['users'] = $query->row();
-        } else {
-            $data['users'] = null;
-        }
-    
-        $this->load->view('home/data.php', $data);
+        // Update database
+        $data = array(
+            'updated_at' => date('Y-m-d H:i:s'),
+            'finished_at' => date('Y-m-d H:i:s')
+        );
+        $this->db->update('users', $data, array('id' => $kodenya));
+
+        // Redirect back to form
+        redirect(base_url()); // Ganti 'form-url' dengan URL form Anda
     }
 }
 ?>

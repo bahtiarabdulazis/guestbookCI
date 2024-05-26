@@ -1,57 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Buku Tamu</title>
+    <title>QR Code</title>
     <style>
         body {
             display: flex;
             flex-direction: column;
+            align-items: center;
             justify-content: center;
-            align-items: center;
-            height: 100vh; /* Menempatkan halaman di tengah-tengah vertikal */
-        }
-
-        .container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            margin-top: auto; /* Menempatkan kontainer di tengah-tengah halaman */
-            margin-bottom: auto;
-        }
-
-        .item {
-            text-align: center;
-            padding: 10px;
-        }
-
-        .note {
-            margin-top: 20px;
-            font-style: italic;
-            color: #555;
+            height: 100vh;
+            margin: 0;
         }
     </style>
 </head>
-
 <body>
-    <div class="container">
-        <h3>Kode QR</h3>
-        <?php if (!empty($data)) : ?>
-            <?php foreach ($data as $row) : ?>
-                <div class="item">
-                        <img src="<?php echo site_url('render/QRcode/' . $row->id); ?>" alt="QR Code">
-                    </a>
-                    <div class="note">
-                        Berikan QR ini ketika anda telah selesai berkunjung.
-                    </div>
-                </div>
-            <?php endforeach; ?>
-        <?php else : ?>
-            <div class="item">Tidak ada data terbaru.</div>
-        <?php endif; ?>
-    </div>
+    <h1>Scan QR Code</h1>
+    <?php if (!empty($data)): ?>
+        <div id="qrcode">
+            <?php
+                foreach ($data as $user) {
+                    echo '<img src="'.base_url('Render/QRcode/'.$user->id).'">';
+                }
+            ?>
+        </div>
+    <?php else: ?>
+        <p>No data available</p>
+    <?php endif; ?>
 </body>
-
 </html>
