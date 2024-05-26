@@ -6,10 +6,15 @@ class Render extends CI_Controller {
         parent::__construct();
         $this->load->library('Ciqrcode');
         $this->load->database();
+        $this->load->library('session');
     }
 
     public function index() {
-        // Mengambil entri terbaru dari tabel 'users'
+        if (!$this->session->userdata('form_submitted')) {
+            $this->session->set_flashdata('error', 'Anda harus mengisi form terlebih dahulu untuk melanjutkan.');
+            redirect(base_url()); // Ganti 'form-url' dengan URL form Anda
+        }
+
         $this->db->order_by('id', 'DESC');
         $query = $this->db->get('users', 1);
         $data['data'] = $query->result();
@@ -28,10 +33,13 @@ class Render extends CI_Controller {
     }
 
     public function viewData($id) {
-        // Fetch data from the 'tamu' table based on ID
+        if (!$this->session->userdata('form_submitted')) {
+            $this->session->set_flashdata('error', 'Anda harus mengisi form terlebih dahulu untuk melanjutkan.');
+            redirect(base_url()); // Ganti 'form-url' dengan URL form Anda
+        }
+
         $this->db->where('id', $id);
         $query = $this->db->get('users');
-        // print_r($id);
     
         if ($query->num_rows() > 0) {
             $data['users'] = $query->row();
@@ -39,7 +47,7 @@ class Render extends CI_Controller {
             $data['users'] = null;
         }
     
-        // Load the view and pass the data
         $this->load->view('home/data.php', $data);
     }
 }
+?>

@@ -17,8 +17,11 @@
                                 <h3 id="form-title" class="mb-4">Form Buku Tamu</h3>
                             </div>
                         </div>
-                        <!-- Form untuk menambahkan tamu -->
-                        <div id="alert" style="display: none;"></div>
+                        <?php if ($this->session->flashdata('error')): ?>
+                            <div id="alert" class="alert alert-danger">
+                                <?php echo $this->session->flashdata('error'); ?>
+                            </div>
+                        <?php endif; ?>
                         <form id="guestForm" action="<?php echo base_url('TamuController/simpanTamu'); ?>" method="post">
                             <div class="form-group mb-3">
                                 <label class="label" for="nama">Nama</label>
@@ -42,7 +45,6 @@
                                 <button class="btn btn-success" type="submit" style="padding-left: 35%; padding-right: 35%">Selanjutnya</button>
                             </div>
                         </form>
-                        <!-- Akhir form -->
                     </div>
                 </div>
             </div>
@@ -58,20 +60,16 @@
                 dataType: "json",
                 success: function(data) {
                     if (data && Array.isArray(data) && data.length > 0) {
-                        $('#ygdituju').empty(); // Bersihkan opsi dropdown sebelum menambahkan yang baru
-                        $('#ygdituju').append('<option value="">Pilih Yang Dituju</option>'); // Tambahkan opsi default
+                        $('#ygdituju').empty();
+                        $('#ygdituju').append('<option value="">Pilih Yang Dituju</option>');
                         $.each(data, function(i, pegawai) {
-                            if (i !== 1) { // Abaikan elemen pertama (indeks 0)
-                                $('#ygdituju').append('<option value="' + pegawai.nama + '">' + pegawai.nama + '</option>');
-                            }
+                            $('#ygdituju').append('<option value="' + pegawai.nama + '">' + pegawai.nama + '</option>');
                         });
                     } else {
-                        console.error('Respons tidak memiliki properti yang diharapkan atau data kosong.');
                         $('#ygdituju').html('<option value="">Gagal memuat data</option>');
                     }
                 },
                 error: function(xhr, status, error) {
-                    console.error(xhr.responseText);
                     $('#ygdituju').html('<option value="">Gagal memuat data</option>');
                 }
             });
