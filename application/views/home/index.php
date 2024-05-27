@@ -42,7 +42,7 @@
                                 </select>
                             </div>
                             <div class="d-grid gap-2">
-                                <button class="btn btn-success" type="submit" style="padding-left: 35%; padding-right: 35%">Selanjutnya</button>
+                            <button type="button" class="btn btn-success" onclick="showModal()" style="padding-left: 35%; padding-right: 35%">Selanjutnya</button>
                             </div>
                         </form>
                     </div>

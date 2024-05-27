@@ -37,16 +37,17 @@ class TamuController extends CI_Controller
             $this->session->set_flashdata('status', 'Data successfully saved!');
             $this->session->set_userdata('form_submitted', true); // Mark form as submitted
             $this->session->set_userdata('qr_scanned', false); // QR not yet scanned
-            redirect('render/showQR'); // Redirect to QR code page
+            redirect(base_url('render/showQR')); // Redirect to QR code page
         }
     }
 
     public function ygDituju()
     {
-        $getData = json_decode($this->curl->simple_get($this->API));
+        $getData = $this->curl->simple_get($this->API);
+        $data = json_decode($getData);
     
-        if (!empty($getData) && property_exists($getData, 'datapegawai')) {
-            $datapegawai = $getData->datapegawai;
+        if ($data && property_exists($data, 'datapegawai')) {
+            $datapegawai = $data->datapegawai;
             $this->output
                 ->set_content_type('application/json')
                 ->set_output(json_encode($datapegawai));

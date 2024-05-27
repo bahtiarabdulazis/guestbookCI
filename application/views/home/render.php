@@ -13,6 +13,12 @@
             height: 100vh;
             margin: 0;
         }
+        #qrcode {
+            text-align: center;
+        }
+        #qrcode p {
+            margin-top: 10px; /* Sesuaikan jarak antara QR code dan teks */
+        }
     </style>
 </head>
 <body>
@@ -21,7 +27,8 @@
         <div id="qrcode">
             <?php
                 foreach ($data as $user) {
-                    echo '<img src="'.base_url('Render/QRcode/'.$user->id).'">';
+                    echo '<img src="'.base_url('render/QRcode/'.$user->id).'">';
+                    echo '<p>Berikan QR ini ketika Anda selesai berkunjung</p>';
                 }
             ?>
         </div>

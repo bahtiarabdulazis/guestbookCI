@@ -100,7 +100,7 @@
         let ygdituju = document.querySelector('select[name="ygdituju"]').value;
 
         $.ajax({
-            url: "<?php echo base_url('TamuController/SimpanTamu'); ?>",
+            url: "<?php echo base_url('TamuController/simpanTamu'); ?>",
             type: "POST",
             data: {
                 _token: "{{ csrf_token() }}",   
@@ -115,13 +115,14 @@
                 
                 // Redirect ke halaman QR code setelah 2 detik
                 setTimeout(function(){
-                    window.location.href = "<?php echo base_url('/render'); ?>";
+                    window.location.href = "<?php echo base_url('/render/showQR'); ?>";
                 }, 1000); // 1 detik
             },
             error: function(xhr) {
                 $('#alert').removeClass('alert-success').addClass('alert-danger').html(
                     'Terjadi kesalahan, data tidak dapat disimpan.').show();
             }
+
         });
     }
 </script>

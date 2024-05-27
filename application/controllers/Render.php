@@ -29,7 +29,7 @@ class Render extends CI_Controller {
             $this->session->unset_userdata('form_submitted');
             $this->session->unset_userdata('qr_scanned');
             redirect(base_url()); // Ganti 'form-url' dengan URL form Anda
-        }
+        } 
     }
 
     public function QRcode($kodenya) {
