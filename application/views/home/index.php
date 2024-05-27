@@ -61,15 +61,17 @@
                 type: "GET",
                 dataType: "json",
                 success: function(data) {
+
                     if (data && Array.isArray(data) && data.length > 0) {
                         $('#ygdituju').empty();
                         $('#ygdituju').append('<option value="" hidden>Pilih Yang Dituju</option>');
                         $.each(data, function(i, pegawai) {
+                            data.sort(function(a, b) {
+                                return b.id - a.id;
+                            });
                             if (pegawai.id != 23 && pegawai.id != 30 && pegawai.id != 163) {
-
                                 $('#ygdituju').append('<option value="' + pegawai.nama + '">' + pegawai.nama + '</option>');
                             }
-
                         });
                     } else {
                         $('#ygdituju').html('<option value="">Gagal memuat data</option>');
