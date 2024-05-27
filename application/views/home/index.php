@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Form Buku Tamu</title>
 </head>
+
 <body>
     <section>
         <div class="container d-flex justify-content-center align-items-center">
@@ -17,7 +19,7 @@
                                 <h3 id="form-title" class="mb-4">Form Buku Tamu</h3>
                             </div>
                         </div>
-                        <?php if ($this->session->flashdata('error')): ?>
+                        <?php if ($this->session->flashdata('error')) : ?>
                             <div id="alert" class="alert alert-danger">
                                 <?php echo $this->session->flashdata('error'); ?>
                             </div>
@@ -42,7 +44,7 @@
                                 </select>
                             </div>
                             <div class="d-grid gap-2">
-                            <button type="button" class="btn btn-success" onclick="showModal()" style="padding-left: 35%; padding-right: 35%">Selanjutnya</button>
+                                <button type="button" class="btn btn-success" onclick="showModal()" style="padding-left: 35%; padding-right: 35%">Selanjutnya</button>
                             </div>
                         </form>
                     </div>
@@ -61,9 +63,13 @@
                 success: function(data) {
                     if (data && Array.isArray(data) && data.length > 0) {
                         $('#ygdituju').empty();
-                        $('#ygdituju').append('<option value="">Pilih Yang Dituju</option>');
+                        $('#ygdituju').append('<option value="" hidden>Pilih Yang Dituju</option>');
                         $.each(data, function(i, pegawai) {
-                            $('#ygdituju').append('<option value="' + pegawai.nama + '">' + pegawai.nama + '</option>');
+                            if (pegawai.id != 23 && pegawai.id != 30 && pegawai.id != 163) {
+
+                                $('#ygdituju').append('<option value="' + pegawai.nama + '">' + pegawai.nama + '</option>');
+                            }
+
                         });
                     } else {
                         $('#ygdituju').html('<option value="">Gagal memuat data</option>');
@@ -76,4 +82,5 @@
         });
     </script>
 </body>
+
 </html>

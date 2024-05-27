@@ -27,7 +27,7 @@
         <div id="qrcode">
             <?php
                 foreach ($data as $user) {
-                    echo '<img src="'.base_url('render/QRcode/'.$user->id).'">';
+                    echo ' <img src="'.base_url('render/QRcode/'.$user->id).'">';
                     echo '<p>Berikan QR ini ketika Anda selesai berkunjung</p>';
                 }
             ?>
@@ -37,3 +37,5 @@
     <?php endif; ?>
 </body>
 </html>
+
+

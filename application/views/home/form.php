@@ -37,16 +37,10 @@
         <?php if ($users): ?>
             <div class="content">
                 <div class="data-item">
-                    <p><span class="label">Nama:</span> <?php echo $users->nama; ?></p>
+                    <p><span class="label">Username:</span> <?php echo $users->nama; ?></p>
                 </div>
                 <div class="data-item">
-                    <p><span class="label">Nama Perusahaan:</span> <?php echo $users->aslpt; ?></p>
-                </div>
-                <div class="data-item">
-                    <p><span class="label">Maksud Kunjungan:</span> <?php echo $users->makkun; ?></p>
-                </div>
-                <div class="data-item">
-                    <p><span class="label">Yang Dituju:</span> <?php echo $users->ygdituju; ?></p>
+                    <p><span class="label">Password:</span> <?php echo $users->aslpt; ?></p>
                 </div>
                 <button onclick="confirmData(<?php echo $users->id; ?>)">Konfirmasi</button>
             </div>
