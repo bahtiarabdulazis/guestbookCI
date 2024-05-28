@@ -3,30 +3,67 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Detail Buku users</title>
+    <title>Detail Buku Tamu</title>
     <style>
-        .container {
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
             display: flex;
-            flex-direction: column;
             justify-content: center;
             align-items: center;
             height: 100vh;
-            padding: 20px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-            max-width: 600px;
-            margin: 0 auto;
         }
-        .content {
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
             width: 100%;
+            max-width: 400px;
+            box-sizing: border-box;
         }
         h2 {
+            margin-top: 0;
             text-align: center;
-            margin-bottom: 20px;
+        }
+        .content {
+            margin-top: 20px;
         }
         .data-item {
-            margin-bottom: 10px;
+            margin-bottom: 15px;
         }
-        .label {
+        .data-item label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        .data-item input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        p {
+            text-align: center;
+        }
+        p[style="color:red;"] {
+            color: red;
             font-weight: bold;
         }
     </style>
@@ -34,39 +71,22 @@
 <body>
     <div class="container">
         <h2>Detail Buku Tamu</h2>
-        <?php if ($users): ?>
-            <div class="content">
+        <div class="content">
+            <?php if (!empty($error)): ?>
+                <p style="color:red;"><?php echo $error; ?></p>
+            <?php endif; ?>
+            <form method="post" action="">
                 <div class="data-item">
-                    <p><span class="label">Username:</span> <?php echo $users->nama; ?></p>
+                    <label for="username">Username:</label>
+                    <input type="text" id="username" name="username" required>
                 </div>
                 <div class="data-item">
-                    <p><span class="label">Password:</span> <?php echo $users->aslpt; ?></p>
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" name="password" required>
                 </div>
-                <button onclick="confirmData(<?php echo $users->id; ?>)">Konfirmasi</button>
-            </div>
-        <?php else: ?>
-            <p>Data tidak ditemukan.</p>
-        <?php endif; ?>
+                <button type="submit">Konfirmasi</button>
+            </form>
+        </div>
     </div>
-
-    <script>
-    function confirmData(id) {
-        fetch('<?php echo site_url('render/confirmQR'); ?>/' + id, {
-            method: 'POST'
-        })
-        .then(response => response.json())
-        .then(data => {
-            if (data.success) {
-                alert('Data confirmed and QR code removed.');
-                window.location.href = '<?php echo site_url('home/index'); ?>'; // Redirect to home or another page
-            } else {
-                alert('Error confirming data');
-            }
-        })
-        .catch(error => {
-            console.error('Error:', error);
-        });
-    }
-    </script>
 </body>
 </html>

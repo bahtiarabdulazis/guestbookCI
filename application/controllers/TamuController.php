@@ -33,6 +33,7 @@ class TamuController extends CI_Controller
             );
 
             $this->Tamu->simpanTamu($data);
+            $this->session->set_userdata('test_session', true);
 
             $this->session->set_flashdata('status', 'Data successfully saved!');
             $this->session->set_userdata('form_submitted', true); // Mark form as submitted
