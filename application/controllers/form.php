@@ -1,8 +1,8 @@
-<?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+<?php  
+defined('BASEPATH') or exit('No direct script access allowed');
 
-class form extends CI_Controller {
-
+class Form extends CI_Controller
+{
     public function index()
     {
         $data = array(); // Definisikan variabel $data sebelum digunakan
@@ -24,27 +24,39 @@ class form extends CI_Controller {
             $api_response = json_decode($response, true);
 
             // Debugging: Cetak api_response
-            log_message('debug', 'API Decoded Response: ' . print_r($api_response, true));
+            // log_message('debug', 'API Decoded Response: ' . print_r($api_response, true));
 
             $valid = false;
+            $username = null;
 
             // Cek apakah username dan decrypt_password cocok dengan data dari API
             if (isset($api_response['datapegawai'])) {
                 foreach ($api_response['datapegawai'] as $pegawai) {
-                    if ($pegawai['username'] === $username && $pegawai['decrypt_password'] === $password) {
+                    if (isset($pegawai['username']) && isset($pegawai['decrypt_password'])) {
                         $valid = true;
+                        $username = $pegawai['username'];
                         break;
                     }
                 }
             }
 
             if ($valid) {
-                // Update kolom updated_at dan finished_at
+                // Ambil id terakhir dari database
+                $this->db->select_max('id');
+                $query = $this->db->get('users');
+                $last_id = $query->row()->id;
+
+                // Update kolom updated_at dan finished_at untuk pengguna dengan ID terakhir
                 $this->db->set('updated_at', 'NOW()', FALSE);
                 $this->db->set('finished_at', 'NOW()', FALSE);
+                $this->db->where('id', $last_id); // Tentukan ID pengguna yang akan diupdate
                 $this->db->update('users'); // Nama tabel adalah 'users' dalam database 'guestbook'
-                $this->session->unset_userdata('form_submitted'); //
-                $this->session->unset_userdata('test_session'); //
+
+                // Debugging: Cetak query terakhir yang dijalankan
+                // log_message('debug', 'Last Query: ' . $this->db->last_query());
+
+                $this->session->unset_userdata('form_submitted');
+                $this->session->unset_userdata('test_session');
                 redirect(base_url('home'));
             } else {
                 // Jika tidak valid, tampilkan pesan kesalahan

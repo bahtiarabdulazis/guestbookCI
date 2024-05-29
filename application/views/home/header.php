@@ -263,12 +263,19 @@
 
             #firstModal p,
             ul li {
-                font-size: 6px;
+                font-size: 11px;
+                max-height: 300px;
             }
 
             #secondModal p,
             ol li {
-                font-size: 6px;
+                font-size: 11px;
+                max-height: 300px;
+            }
+            #thirdModal p,
+            ol li {
+                font-size: 8px;
+                max-height: 300px;
             }
 
             .modal-table tbody tr th,
@@ -309,6 +316,8 @@
         #modalrahasia {
             margin-left: 10%;
         }
+
+       
     </style>
 </head>
 <body>

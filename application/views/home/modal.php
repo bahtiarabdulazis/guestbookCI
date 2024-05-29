@@ -3,124 +3,127 @@
     <div class="modal-content justify-content-center">
         <span class="close" onclick="closeModal()">&times;</span>
         <div class="slideshow-container">
-            <div class="mySlides fade">
-                <div class="modal-header text-center">
-                    <h5 class="modal-title" id="modal3Label">Kebijakan HSE PT Anugrah Analisis Sempurna</h5>
-                </div>
-                <div class="modal-body">
-                    <div class="row" id="firstModal" style="font-size: 18px;">
-                        <p>
-                            PT. Anugrah Analisis Sempurna berusaha dengan sungguh-sungguh untuk mencapai
-                            peningkatan standar sistem manajemen HSE pada seluruh sistem operasi. Manajemen
-                            puncak menetapkan, mengesahkan, menerapkan serta memelihara kebijakan HSE.
-                        </p>
-                        <p>Kebijakan HSE PT. Anugrah Analisis Sempurna adalah:</p>
-                        <ul>
-                            <li>
-                                Menyediakan kondisi kerja yang aman dan sehat untuk mencegah terjadinya
-                                kecelakaan kerja dan penyakit akibat kerja dengan menerapkan sistem
-                                manajemen K3 ISO 45001.
-                            </li>
-                            <li>
-                                Mencegah timbulnya pencemaran lingkungan dari kegiatan operasional dengan
-                                menerapkan sistem manajemen lingkungan ISO 14001.
-                            </li>
-                            <li>
-                                Berusaha memenuhi seluruh peraturan dan melakukan perbaikan terus menerus
-                                dalam hal yang berkaitan dengan masalah HSE.
-                            </li>
-                            <li>
-                                Melakukan komunikasi yang aktif baik internal ataupun eksternal terkait
-                                masalah HSE.
-                            </li>
-                            <li>
-                                Meningkatkan keahlian, kesadaran, motivasi, konsultasi, dan partisipasi
-                                seluruh karyawan yang berkaitan dengan masalah HSE.
-                            </li>
-                            <li>
-                                Penyalahgunaan obat-obatan terlarang, minuman beralkohol dan penggunaan
-                                senjata tajam / api di seluruh area kerja PT. Anugrah Analisis Sempurna,
-                                dilarang keras dan tidak bisa ditolerir dengan alasan apapun.
-                            </li>
-                            <li>
-                                Seluruh personel PT. Anugrah Analisis Sempurna diperingatkan bahwa
-                                perusahaan sangat serius dalam menangani penyalahgunaan obat-obatan
-                                terlarang, minuman beralkohol dan penggunaan senjata tajam / api dan akan
-                                memberikan peringatan keras, skorsing atau pemutusan hubungan kerja dibawah
-                                peraturan ketenagakerjaan.
-                            </li>
-                            <li>
-                                Apabila dirasakan perlu, PT. Anugrah Analisis Sempurna akan mengambil
-                                tindakan berupa pengukuran kandungan obat-obatan terlarang dan minuman
-                                beralkohol apabila ada indikasi ke arah tersebut.
-                            </li>
-                            <li>
-                                Kebijakan ini berlaku bagi seluruh tamu, kontraktor, pelanggan selama
-                                menjadi rekanan dan berada di area kerja PT. Anugrah Analisis Sempurna.
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
+        <!-- Kebijakan HSE -->
+<!-- Kebijakan HSE -->
+<div class="mySlides fade">
+    <div class="modal-header text-center">
+        <h5 class="modal-title" id="modal3Label">Kebijakan HSE PT Anugrah Analisis Sempurna</h5>
+    </div>
+    <div class="modal-body">
+        <div class="row" id="firstModal" style="font-size: 16px; overflow-y: auto; max-height: 400px;"> <!-- Changed font-size to 16px, added scroll -->
+            <p>
+                PT. Anugrah Analisis Sempurna berusaha dengan sungguh-sungguh untuk mencapai
+                peningkatan standar sistem manajemen HSE pada seluruh sistem operasi. Manajemen
+                puncak menetapkan, mengesahkan, menerapkan serta memelihara kebijakan HSE.
+            </p>
+            <p>Kebijakan HSE PT. Anugrah Analisis Sempurna adalah:</p>
+            <ul>
+                <li>
+                    Menyediakan kondisi kerja yang aman dan sehat untuk mencegah terjadinya
+                    kecelakaan kerja dan penyakit akibat kerja dengan menerapkan sistem
+                    manajemen K3 ISO 45001.
+                </li>
+                <li>
+                    Mencegah timbulnya pencemaran lingkungan dari kegiatan operasional dengan
+                    menerapkan sistem manajemen lingkungan ISO 14001.
+                </li>
+                <li>
+                    Berusaha memenuhi seluruh peraturan dan melakukan perbaikan terus menerus
+                    dalam hal yang berkaitan dengan masalah HSE.
+                </li>
+                <li>
+                    Melakukan komunikasi yang aktif baik internal ataupun eksternal terkait
+                    masalah HSE.
+                </li>
+                <li>
+                    Meningkatkan keahlian, kesadaran, motivasi, konsultasi, dan partisipasi
+                    seluruh karyawan yang berkaitan dengan masalah HSE.
+                </li>
+                <li>
+                    Penyalahgunaan obat-obatan terlarang, minuman beralkohol dan penggunaan
+                    senjata tajam / api di seluruh area kerja PT. Anugrah Analisis Sempurna,
+                    dilarang keras dan tidak bisa ditolerir dengan alasan apapun.
+                </li>
+                <li>
+                    Seluruh personel PT. Anugrah Analisis Sempurna diperingatkan bahwa
+                    perusahaan sangat serius dalam menangani penyalahgunaan obat-obatan
+                    terlarang, minuman beralkohol dan penggunaan senjata tajam / api dan akan
+                    memberikan peringatan keras, skorsing atau pemutusan hubungan kerja dibawah
+                    peraturan ketenagakerjaan.
+                </li>
+                <li>
+                    Apabila dirasakan perlu, PT. Anugrah Analisis Sempurna akan mengambil
+                    tindakan berupa pengukuran kandungan obat-obatan terlarang dan minuman
+                    beralkohol apabila ada indikasi ke arah tersebut.
+                </li>
+                <li>
+                    Kebijakan ini berlaku bagi seluruh tamu, kontraktor, pelanggan selama
+                    menjadi rekanan dan berada di area kerja PT. Anugrah Analisis Sempurna.
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
 
-            <div class="mySlides fade">
-                <div class="modal-header text-center">
-                    <h5 class="modal-title" id="modal7Label">Kebijakan Mutu PT Anugrah Analisis Sempurna</h5>
-                </div>
-                <div class="modal-body">
-                    <div class="row" style="font-size: 18px;" id="secondModal">
-                        <p>
-                            PT Anugrah Analisis Sempurna sebagai perusahaan yang bergerak dibidang
-                            laboratorium pengujian dan kalibrasi, serta sebagai laboratorium lingkungan,
-                            berkomitmen untuk:
-                        </p>
-                        <ol>
-                            <li>
-                                Menerapkan praktek profesional yang baik <i>(Good Professional Practice)
-                                </i>dengan menjaga objektivitas penerapan sistem manajemen mutu dan menjamin
-                                bahwa seluruh personil bebas dari pengaruh tekanan komersial, keuangan
-                                maupun tekanan lain yang dapat berpengaruh buruk terhadap pelaksanaan
-                                pengujian dan kalibrasi;
-                            </li>
-                            <li>
-                                Menerapkan praktek bisnis yang beretika dan bersih dengan menerapkan prinsip
-                                zero tolerance terhadap segala bentuk penyuapan di dalam perusahaan serta
-                                selalu mematuhi ketentuan dan/ atau peraturan perundang-undangan anti
-                                penyuapan yang berlaku.
-                            </li>
-                            <li>
-                                Menerapkan program jaminan mutu dan standar pelayanan yang sama terhadap
-                                setiap pengujian dan kalibrasi;
-                            </li>
-                            <li>
-                                Mempunyai kompetensi dalam menghasilkan data pengujian dan kalibrasi yang
-                                akurat dan presisi yang tinggi;
-                            </li>
-                            <li>
-                                Melakukan pengambilan contoh uji sesuai dengan persyaratan yang ditetapkan;
-                            </li>
-                            <li>
-                                Meningkatkan peluang dan meminimalkan resiko yang berpengaruh terhadap
-                                kegiatan pengujian dan kalibrasi;
-                            </li>
-                            <li>
-                                Menerapkan ISO 17025:2017 dan ISO 9001:2015 serta secara berkelanjutan
-                                meningkatkan efektivitas sistem manajemen berdasarkan sasaran mutu yang
-                                ditetapkan;
-                            </li>
-                            <li>
-                                Menjamin bahwa kebijakan dan sasaran mutu ini dimengerti dan diterapkan
-                                serta dipelihara oleh seluruh personil pada semua tingkatan organisasi
-                                laboratorium;
-                            </li>
-                            <li>
-                                Kebijakan laboratorium tentang K3L di laboratorium mengacu pada panduan HSE
-                                no. 5.2.
-                            </li>
-                        </ol>
-                    </div>
-                </div>
-            </div>
+<!-- Kebijakan Mutu -->
+<div class="mySlides fade">
+    <div class="modal-header text-center">
+        <h5 class="modal-title" id="modal7Label">Kebijakan Mutu PT Anugrah Analisis Sempurna</h5>
+    </div>
+    <div class="modal-body">
+        <div class="row" style="font-size: 16px; overflow-y: auto; max-height: 400px;" id="secondModal"> <!-- Changed font-size to 16px, added scroll -->
+            <p>
+                PT Anugrah Analisis Sempurna sebagai perusahaan yang bergerak dibidang
+                laboratorium pengujian dan kalibrasi, serta sebagai laboratorium lingkungan,
+                berkomitmen untuk:
+            </p>
+            <ol>
+                <li>
+                    Menerapkan praktek profesional yang baik <i>(Good Professional Practice)
+                    </i>dengan menjaga objektivitas penerapan sistem manajemen mutu dan menjamin
+                    bahwa seluruh personil bebas dari pengaruh tekanan komersial, keuangan
+                    maupun tekanan lain yang dapat berpengaruh buruk terhadap pelaksanaan
+                    pengujian dan kalibrasi;
+                </li>
+                <li>
+                    Menerapkan praktek bisnis yang beretika dan bersih dengan menerapkan prinsip
+                    zero tolerance terhadap segala bentuk penyuapan di dalam perusahaan serta
+                    selalu mematuhi ketentuan dan/ atau peraturan perundang-undangan anti
+                    penyuapan yang berlaku.
+                </li>
+                <li>
+                    Menerapkan program jaminan mutu dan standar pelayanan yang sama terhadap
+                    setiap pengujian dan kalibrasi;
+                </li>
+                <li>
+                    Mempunyai kompetensi dalam menghasilkan data pengujian dan kalibrasi yang
+                    akurat dan presisi yang tinggi;
+                </li>
+                <li>
+                    Melakukan pengambilan contoh uji sesuai dengan persyaratan yang ditetapkan;
+                </li>
+                <li>
+                    Meningkatkan peluang dan meminimalkan resiko yang berpengaruh terhadap
+                    kegiatan pengujian dan kalibrasi;
+                </li>
+                <li>
+                    Menerapkan ISO 17025:2017 dan ISO 9001:2015 serta secara berkelanjutan
+                    meningkatkan efektivitas sistem manajemen berdasarkan sasaran mutu yang
+                    ditetapkan;
+                </li>
+                <li>
+                    Menjamin bahwa kebijakan dan sasaran mutu ini dimengerti dan diterapkan
+                    serta dipelihara oleh seluruh personil pada semua tingkatan organisasi
+                    laboratorium;
+                </li>
+                <li>
+                    Kebijakan laboratorium tentang K3L di laboratorium mengacu pada panduan HSE
+                    no. 5.2.
+                </li>
+            </ol>
+        </div>
+    </div>
+</div>
 
             <div class="mySlides fade">
                 <div class="modal-header text-center">
@@ -202,7 +205,7 @@
                 <div class="modal-body">
                     <div class="row justify-content-center">
                         <!-- Tambahkan kelas text-center di sini -->
-                        <div class="col-md-6" style="font-size: 15px">
+                        <div class="col-md-6" style="font-size: 13px" id="thirdmodal">
                             <p>Mewakili perusahaan saya, dengan ini menyatakan:</p>
                             <ol>
                                 <li>
