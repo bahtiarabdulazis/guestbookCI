@@ -20,7 +20,7 @@
     <?php if (!empty($data)): ?>
         <div id="qrcode">
             <?php foreach ($data as $user): ?>
-                <a href="<?= base_url('/form') ?>"><img src="<?php echo base_url('render/QRcode/'.$user->id); ?>" alt="QR Code"></a>
+                <a href="<?= base_url('form/' . $user->id) ?>"><img src="<?php echo base_url('render/QRcode/' . $user->id); ?>" alt="QR Code"></a>
             <?php endforeach; ?>
         </div>
     <?php else: ?>

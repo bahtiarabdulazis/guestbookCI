@@ -46,7 +46,7 @@ class TamuController extends CI_Controller
     {
         $getData = $this->curl->simple_get($this->API);
         $data = json_decode($getData);
-    
+
         if ($data && property_exists($data, 'datapegawai')) {
             $datapegawai = $data->datapegawai;
             $this->output
@@ -59,4 +59,3 @@ class TamuController extends CI_Controller
         }
     }
 }
-?>

@@ -46,14 +46,16 @@
             position: relative;
             top: 50%;
             transform: translateY(-50%);
-            width: 80%; /* Increased width */
+            width: 80%;
+            /* Increased width */
             max-width: 100%;
             max-height: 95%;
             padding: 20px;
             border-radius: 10px;
             background-color: #fff;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-            overflow-y: auto; /* Make modal content scrollable */
+            overflow-y: auto;
+            /* Make modal content scrollable */
         }
 
         .close {
@@ -145,6 +147,7 @@
             from {
                 opacity: 0.4;
             }
+
             to {
                 opacity: 1;
             }
@@ -208,7 +211,7 @@
 
         @media (max-width: 600px) {
             .wrap .img {
-                height: 175px;
+                height: 100%;
             }
 
             #form-title {
@@ -272,6 +275,7 @@
                 font-size: 11px;
                 max-height: 300px;
             }
+
             #thirdModal p,
             ol li {
                 font-size: 8px;
@@ -316,8 +320,7 @@
         #modalrahasia {
             margin-left: 10%;
         }
-
-       
     </style>
 </head>
+
 <body>

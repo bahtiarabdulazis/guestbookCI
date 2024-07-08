@@ -1,8 +1,45 @@
-<script src="<?= base_url('assets/js/jquery.min.js') ?>"></script>
+<!-- Include jQuery and select2 JS -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
 <script src="<?= base_url('assets/js/popper.js') ?>"></script>
 <script src="<?= base_url('assets/js/bootstrap.min.js')?>"></script>
 <script src="<?= base_url('assets/js/main.js') ?>"></script>
 <script>
+    $(document).ready(function() {
+        // Initialize select2
+        $('#ygdituju').select2({
+            placeholder: 'Pilih yang dituju',
+            allowClear: true
+        });
+
+        // Load data for select2    
+        $.ajax({
+            url: "<?php echo base_url('TamuController/ygDituju'); ?>",
+            type: "GET",
+            dataType: "json",
+            success: function(data) {
+                if (data && Array.isArray(data) && data.length > 0) {
+                    $('#ygdituju').empty();
+                    $('#ygdituju').append('<option value="" selected disabled style="display:none;">Pilih yang Anda Tuju</option>');
+
+                    $.each(data, function(i, pegawai) {
+                        if (pegawai.id != 23 && pegawai.id != 30 && pegawai.id != 163) {
+                            $('#ygdituju').append('<option value="' + pegawai.nama + '">' + pegawai.nama + '</option>');
+                        }
+                    });
+
+                    // Refresh select2
+                    $('#ygdituju').trigger('change');
+                } else {
+                    console.warn('No data received or data is not in expected format');
+                }
+            },
+            error: function(xhr, status, error) {   
+                console.error('Failed to load data:', error);
+            }
+        });
+    });
+    
     // Fungsi untuk menampilkan modal
     function showModal() {
         // Memeriksa apakah semua formulir telah diisi
@@ -16,7 +53,7 @@
 
     function isFormValid() {
         // Memeriksa setiap input untuk memastikan tidak kosong
-        let inputs = document.querySelectorAll('#guestForm input');
+        let inputs = document.querySelectorAll('#guestForm input, #guestForm textarea, #guestForm select');
         for (let i = 0; i < inputs.length; i++) {
             if (inputs[i].value.trim() === '') {
                 return false; // Jika ada input yang kosong, mengembalikan false
@@ -72,9 +109,7 @@
             document.getElementsByClassName("prev")[0].style.display = "inline";
         }
     }
-</script>
 
-<script>
     function toggleSaveButton() {
         const checkbox = document.getElementById("checkbox");
         const saveButton = document.getElementById("save");
@@ -113,18 +148,15 @@
                 $('#alert').removeClass('alert-danger').addClass('alert-success').html(
                     'Data berhasil disimpan!').show();
                 
-                // Redirect ke halaman QR code setelah 2 detik
-                setTimeout(function(){
-                    window.location.href = "<?php echo base_url('/render/showQR'); ?>";
-                }, 1000); // 1 detik
-            },
+                // Redirect ke halaman QR code setelah 1 detik
+                    setTimeout(function(){
+                        window.location.href = "<?php echo base_url('/render/showQR'); ?>";
+                    }, 1000); // 1 detik
+                },
             error: function(xhr) {
                 $('#alert').removeClass('alert-success').addClass('alert-danger').html(
                     'Terjadi kesalahan, data tidak dapat disimpan.').show();
             }
-
         });
     }
 </script>
-
-</body>

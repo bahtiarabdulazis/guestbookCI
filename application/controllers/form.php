@@ -1,4 +1,4 @@
-<?php  
+<?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
 class Form extends CI_Controller
@@ -27,37 +27,44 @@ class Form extends CI_Controller
             // log_message('debug', 'API Decoded Response: ' . print_r($api_response, true));
 
             $valid = false;
-            $username = null;
 
             // Cek apakah username dan decrypt_password cocok dengan data dari API
             if (isset($api_response['datapegawai'])) {
                 foreach ($api_response['datapegawai'] as $pegawai) {
-                    if (isset($pegawai['username']) && isset($pegawai['decrypt_password'])) {
+                    if ($pegawai['username'] === $username && $pegawai['decrypt_password'] === $password) {
                         $valid = true;
-                        $username = $pegawai['username'];
                         break;
                     }
                 }
             }
 
             if ($valid) {
-                // Ambil id terakhir dari database
-                $this->db->select_max('id');
+                // Validasi username dengan kolom ygdituju di database
+                $this->db->where('ygdituju', $username);
                 $query = $this->db->get('users');
-                $last_id = $query->row()->id;
 
-                // Update kolom updated_at dan finished_at untuk pengguna dengan ID terakhir
-                $this->db->set('updated_at', 'NOW()', FALSE);
-                $this->db->set('finished_at', 'NOW()', FALSE);
-                $this->db->where('id', $last_id); // Tentukan ID pengguna yang akan diupdate
-                $this->db->update('users'); // Nama tabel adalah 'users' dalam database 'guestbook'
+                if ($query->num_rows() > 0) {
+                    // Ambil id terakhir dari database
+                    $this->db->select_max('id');
+                    $query = $this->db->get('users');
+                    $last_id = $query->row()->id;
 
-                // Debugging: Cetak query terakhir yang dijalankan
-                // log_message('debug', 'Last Query: ' . $this->db->last_query());
+                    // Update kolom updated_at dan finished_at untuk pengguna dengan ID terakhir
+                    $this->db->set('updated_at', 'NOW()', FALSE);
+                    $this->db->set('finished_at', 'NOW()', FALSE);
+                    $this->db->where('id', $last_id); // Tentukan ID pengguna yang akan diupdate
+                    $this->db->update('users');
 
-                $this->session->unset_userdata('form_submitted');
-                $this->session->unset_userdata('test_session');
-                redirect(base_url('home'));
+                    // Debugging: Cetak query terakhir yang dijalankan
+                    // log_message('debug', 'Last Query: ' . $this->db->last_query());
+
+                    $this->session->unset_userdata('form_submitted');
+                    $this->session->unset_userdata('test_session');
+                    redirect(base_url('home'));
+                } else {
+                    // Jika tidak valid, tampilkan pesan kesalahan
+                    $data['error'] = 'Username dan password tidak cocok dengan yang dituju';
+                }
             } else {
                 // Jika tidak valid, tampilkan pesan kesalahan
                 $data['error'] = 'Username atau password salah';
@@ -68,4 +75,3 @@ class Form extends CI_Controller
         $this->load->view('home/form', $data);
     }
 }
-?>

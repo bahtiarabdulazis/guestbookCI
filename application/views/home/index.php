@@ -5,6 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Form Buku Tamu</title>
+    <!-- Include CSS for Bootstrap and select2 -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css">
 </head>
 
 <body>
@@ -12,8 +15,10 @@
         <div class="container d-flex justify-content-center align-items-center">
             <div class="col-md-12 col-lg-10">
                 <div class="wrap d-md-flex">
-                    <img src="<?= base_url('assets/images/Aas.jpg'); ?>" class="img" alt="Gambar">
-                    <div class="login-wrap p-4 p-md-5">
+                    <div class="img-container">
+                        <img src="<?= base_url('assets/images/AASG.jpg'); ?>" class="img" alt="Gambar">
+                    </div>
+                    <div class="form-container login-wrap p-4 p-md-5">
                         <div class="d-flex">
                             <div class="w-100">
                                 <h3 id="form-title" class="mb-4">Form Buku Tamu</h3>
@@ -40,11 +45,11 @@
                             <div class="form-group mb-3">
                                 <label class="label" for="ygdituju">Yang Dituju</label>
                                 <select id="ygdituju" name="ygdituju" class="form-control" required>
-                                    <option value="">Memuat data...</option>
+                                    <!-- Opsi akan diisi oleh AJAX -->
                                 </select>
                             </div>
                             <div class="d-grid gap-2">
-                                <button type="button" class="btn btn-success" onclick="showModal()" style="padding-left: 35%; padding-right: 35%">Selanjutnya</button>
+                                <button type="button" class="btn btn-success btn-block" onclick="showModal()" style="padding-left: 35%; padding-right: 35%">Selanjutnya</button>
                             </div>
                         </form>
                     </div>
@@ -52,38 +57,6 @@
             </div>
         </div>
     </section>
-
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script>
-        $(document).ready(function() {
-            $.ajax({
-                url: "<?php echo base_url('TamuController/ygDituju'); ?>",
-                type: "GET",
-                dataType: "json",
-                success: function(data) {
-
-                    if (data && Array.isArray(data) && data.length > 0) {
-                        $('#ygdituju').empty();
-                        $('#ygdituju').append('<option value="" hidden>Pilih Yang Dituju</option>');
-                        $.each(data, function(i, pegawai) {
-                            data.sort(function(a, b) {
-                                return b.id - a.id;
-                            });
-                            if (pegawai.id != 23 && pegawai.id != 30 && pegawai.id != 163) {
-                                $('#ygdituju').append('<option value="' + pegawai.nama + '">' + pegawai.nama + '</option>');
-                            }
-                        });
-                    } else {
-                        $('#ygdituju').html('<option value="">Gagal memuat data</option>');
-                    }
-                },
-                error: function(xhr, status, error) {
-                    $('#ygdituju').html('<option value="">Gagal memuat data</option>');
-                }
-            });
-        });
-    </script>
-    
 </body>
 
 </html>
